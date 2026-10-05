@@ -49,6 +49,6 @@ reg add "%RUN%" /v "%RUNKEY%" /t REG_SZ /d "%BRIDGE%" /f >nul && echo Bridge aut
 REM --- Docker stack (always pulls, so re-running updates Loopback) ---
 docker compose up -d --pull always
 set "RC=%errorlevel%"
-if "%RC%"=="0" (echo Loopback is running: http://localhost:3000) else (echo If the pull was denied, run: docker login ghcr.io)
+if "%RC%"=="0" (echo Loopback is running: http://localhost:3000) else (echo ERROR: docker compose failed - is Docker Desktop running?)
 popd
 endlocal & exit /b %RC%

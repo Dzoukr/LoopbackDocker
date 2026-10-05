@@ -11,12 +11,8 @@ Run [Loopback](https://github.com/Dzoukr/Loopback) from prebuilt images: it sync
 
 ## Setup (once)
 
-1. Copy `.env.example` to `.env` and fill in the required values. `CLAUDE_BRIDGE_TOKEN` is any long random string.
-   Optionally set `LOOPBACK_OUTPUT` to where the result files should go (e.g. your Obsidian inbox).
-2. The images are private - log in to GitHub Container Registry with a token that has `read:packages`:
-   ```
-   docker login ghcr.io -u <github-user>
-   ```
+Copy `.env.example` to `.env` and fill in the required values. `CLAUDE_BRIDGE_TOKEN` is any long random string.
+Optionally set `LOOPBACK_OUTPUT` to where the result files should go (e.g. your Obsidian inbox).
 
 ## Run
 
