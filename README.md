@@ -29,14 +29,14 @@ To pin a version instead of `latest`, set `LOOPBACK_VERSION=1.4.0` in `.env`.
 
 - Drop files (screenshots, documents) on a recording - or paste with Ctrl+V - to attach them. Their time in the call comes from the file name, EXIF or the file date, and can be edited.
 - Marks made in Plaud during the call (device button highlights, text notes, voice memos, photos) are imported during sync. Voice memos are transcribed by Speechmatics.
-- Processing reads them next to what was said at that moment: Claude describes images / PDFs first (`describeModel`, default haiku), and the result links points and action items to them.
+- Processing reads them next to what was said at that moment: Claude describes images / PDFs first (`describeModel`, default haiku), and the result assigns each one to a topic.
 - The result file (`"format": 2`) lists `marks` and `attachments`; the attachment files are copied next to it into `loopback-<id>.files/`.
 
 ## Workflows
 
 A workflow decides how a recording is processed. Each subfolder of `workflows/` is one workflow (the folder name appears in the UI) with three prompts: `summary.md`, `merge.md`, `title.md`. Optionally add:
 
-- `schema.json` - shape of the result (default: `workflows/default.schema.json` - summary, topics with points / decisions / open questions, action items with owner and due date - linked to marks and attachments)
+- `schema.json` - shape of the result (default: `workflows/default.schema.json` - summary, key points per topic, decisions, open questions, action items with owner and due date, and the topic of each note / attachment)
 - `claude.json` - override `model`, `effort`, `passes`, `timeoutSeconds`, `describeModel` or `describeEffort` from `workflows/default.claude.json`
 
 `workflows/describe.md` (optional) replaces the built-in prompt for describing attachments.
